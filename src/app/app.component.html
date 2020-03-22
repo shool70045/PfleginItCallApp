@@ -4,18 +4,14 @@
 <div>
   <mat-card class="p_video_card">
     <mat-card-header class="p_video_header">
-      <mat-select>
-        <mat-option *ngFor="let vSrc of vedioSrc" [value]="vSrc.value">
-          {{ vSrc.text }}
+      <mat-select [(ngModel)]="selectedVdoSrc" (selectionChange)="onVedioSelect()">
+        <mat-option *ngFor="let vSrc of vedioSrcList" [value]="vSrc.deviceId">
+          {{ vSrc.label }}
         </mat-option>
       </mat-select>
-      <mat-icon
-        class="p_video_expand"
-        aria-hidden="false"
-        aria-label="Example home icon"
-        >fullscreen</mat-icon
-      >
+      <mat-icon class="p_video_expand" aria-hidden="false" aria-label="Example home icon">fullscreen</mat-icon>
     </mat-card-header>
-    <video class="p_video_size" src=""></video>
+    <video [srcObject]='vdoSrc' class="p_video_size" autoplay>
+    </video>
   </mat-card>
 </div>
