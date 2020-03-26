@@ -7,6 +7,9 @@
       <mat-label>Local Peer Id</mat-label>
       <input [value]='localPeerId' matInput disabled>
     </mat-form-field>
+    <button mat-mini-fab color="primary" (click)="copyPeerIdText()">
+      <mat-icon class="p_video_expand" aria-hidden="false" aria-label="Example home icon">file_copy</mat-icon>
+    </button>
     <mat-form-field>
       <mat-label>Vedio Source List</mat-label>
       <mat-select [(ngModel)]="selectedVdoSrc" (selectionChange)="onAdoVedioSelect()">
@@ -15,6 +18,14 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <button mat-mini-fab color="primary" (click)="copyPeerIdText()">
+      <mat-icon *ngIf="ifMuteVideo" (click)='muteCurrentVideo(!ifMuteVideo)' class="p_video_expand" aria-hidden="false"
+        aria-label="Example home icon">videocam_off
+      </mat-icon>
+      <mat-icon *ngIf="!ifMuteVideo" (click)='muteCurrentVideo(!ifMuteVideo)' class="p_video_expand" aria-hidden="false"
+        aria-label="Example home icon">
+        videocam</mat-icon>
+    </button>
     <mat-form-field>
       <mat-label>Audio Source List</mat-label>
       <mat-select [(ngModel)]="selectedAdoSrc" (selectionChange)="onAdoVedioSelect()">
@@ -23,24 +34,30 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <button mat-mini-fab color="primary" (click)="copyPeerIdText()">
+      <mat-icon *ngIf="ifMuteAudio" (click)='muteCurrentAudio(!ifMuteAudio)' class="p_video_expand" aria-hidden="false"
+        aria-label="Example home icon">mic_off
+      </mat-icon>
+      <mat-icon *ngIf="!ifMuteAudio" (click)='muteCurrentAudio(!ifMuteAudio)' class="p_video_expand" aria-hidden="false"
+        aria-label="Example home icon">
+        mic</mat-icon>
+    </button>
     <mat-form-field>
       <mat-label>Peer Id to Connect</mat-label>
       <input [(ngModel)]='peerIdToConnect' matInput>
     </mat-form-field>
     <button mat-mini-fab color="primary" (click)="callPeer()">
-      <mat-icon class="p_video_expand" aria-hidden="false" aria-label="Example home icon">phone</mat-icon>
+      <mat-icon *ngIf="!ifCallInProgress" (click)='callPeer()' aria-hidden="false" aria-label="Example home icon">call
+      </mat-icon>
+      <mat-icon *ngIf="ifCallInProgress" (click)='endAllCall()' aria-hidden="false" aria-label="Example home icon">
+        call_end</mat-icon>
     </button>
   </mat-drawer>
   <mat-drawer-content>
-    <!-- <mat-form-field>
-      <mat-label>Has backdrop</mat-label>
-      <mat-select #hasBackdrop>
-        <mat-option>Unset</mat-option>
-        <mat-option [value]="true">True</mat-option>
-        <mat-option [value]="false">False</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-    <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
+    <div>
+      <video [srcObject]='remoteVdoSrc' class="p_remote_video_size" autoplay>
+      </video>
+    </div>
     <mat-card class="p_video_card">
       <mat-card-header class="p_video_header">
         <mat-icon class="p_video_expand" aria-hidden="false" aria-label="Example home icon">fullscreen</mat-icon>
