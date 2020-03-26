@@ -9,6 +9,9 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from "@angular/material/icon";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +23,10 @@ import { MatIconModule } from "@angular/material/icon";
     MatToolbarModule,
     MatCardModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

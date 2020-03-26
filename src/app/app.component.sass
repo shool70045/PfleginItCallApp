@@ -1,12 +1,22 @@
-.p_video_card
-    width: 200px
-    position: absolute
-    right: 10px
-    bottom: 10px
-    .p_video_header
-        .p_video_expand
-            cursor: pointer
-    .p_video_size 
-        
-        height: 150px
+mat-toolbar
+    height: 60px
+mat-drawer-container
+    height: calc(100vh - 60px)
+    mat-drawer
+        width: 250px
+        mat-form-field
+            padding-left: 8px
+    mat-drawer-content
+        .p_video_card
+            width: 200px
+            position: absolute
+            right: 10px
+            bottom: 10px
+        .p_video_header
+            justify-content: flex-end
+            .p_video_expand
+                cursor: pointer
+        .p_video_size 
+            
+            height: 150px
     
