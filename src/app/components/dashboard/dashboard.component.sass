@@ -1,0 +1,42 @@
+@import '../../../styles.sass'
+
+$mobile: 350px
+$ipad: 750px
+
+.dashboard
+    .descDiv
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 48px
+        padding: 100px 0px
+        @media screen and (min-width: $mobile)
+            font-size: 24px
+            padding: 70px 0px
+        @media screen and (min-width: $ipad)
+            font-size: 48px
+            padding: 100px 0px
+    .matCardDiv
+        .p_cards
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-around
+            .p_card
+                color: white
+                background: $accent
+                border-radius: 4px
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                margin: 8px 0px
+                box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12)
+                @media screen and (min-width: $mobile)
+                    flex: 0 1 calc(50% - 1em)
+                @media screen and (min-width: $ipad)
+                    flex: 0 1 calc(33% - 1em)    
+                .p_card_icon_container
+                    .mat-icon
+                        font-size:96px
+                        width: auto
+                        height: auto

@@ -1,69 +1,10 @@
-<mat-toolbar>
-  <span>Pflegin It - CallApp</span>
+<mat-toolbar color="primary">
+  <!-- <button mat-icon-button (click)="snav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <div class="logoDiv">
+    <img class="logo" src='./assets/logo.png' />
+  </div>
+  <span class="logoDesc">Booliye</span>
 </mat-toolbar>
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer [mode]="sideBarMode" opened>
-    <mat-form-field>
-      <mat-label>Local Peer Id</mat-label>
-      <input [value]='localPeerId' matInput disabled>
-    </mat-form-field>
-    <button mat-mini-fab color="primary" (click)="copyPeerIdText()">
-      <mat-icon class="p_video_expand" aria-hidden="false" aria-label="Example home icon">file_copy</mat-icon>
-    </button>
-    <mat-form-field>
-      <mat-label>Vedio Source List</mat-label>
-      <mat-select [(ngModel)]="selectedVdoSrc" (selectionChange)="onAdoVedioSelect()">
-        <mat-option *ngFor="let vSrc of vedioSrcList" [value]="vSrc.deviceId">
-          {{ vSrc.label ||  vSrc.deviceId}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-mini-fab color="primary" (click)="copyPeerIdText()">
-      <mat-icon *ngIf="ifMuteVideo" (click)='muteCurrentVideo(!ifMuteVideo)' class="p_video_expand" aria-hidden="false"
-        aria-label="Example home icon">videocam_off
-      </mat-icon>
-      <mat-icon *ngIf="!ifMuteVideo" (click)='muteCurrentVideo(!ifMuteVideo)' class="p_video_expand" aria-hidden="false"
-        aria-label="Example home icon">
-        videocam</mat-icon>
-    </button>
-    <mat-form-field>
-      <mat-label>Audio Source List</mat-label>
-      <mat-select [(ngModel)]="selectedAdoSrc" (selectionChange)="onAdoVedioSelect()">
-        <mat-option *ngFor="let aSrc of audioSrcList" [value]="aSrc.deviceId">
-          {{ aSrc.label || aSrc.deviceId}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-mini-fab color="primary" (click)="copyPeerIdText()">
-      <mat-icon *ngIf="ifMuteAudio" (click)='muteCurrentAudio(!ifMuteAudio)' class="p_video_expand" aria-hidden="false"
-        aria-label="Example home icon">mic_off
-      </mat-icon>
-      <mat-icon *ngIf="!ifMuteAudio" (click)='muteCurrentAudio(!ifMuteAudio)' class="p_video_expand" aria-hidden="false"
-        aria-label="Example home icon">
-        mic</mat-icon>
-    </button>
-    <mat-form-field>
-      <mat-label>Peer Id to Connect</mat-label>
-      <input [(ngModel)]='peerIdToConnect' matInput>
-    </mat-form-field>
-    <button mat-mini-fab color="primary" (click)="callPeer()">
-      <mat-icon *ngIf="!ifCallInProgress" (click)='callPeer()' aria-hidden="false" aria-label="Example home icon">call
-      </mat-icon>
-      <mat-icon *ngIf="ifCallInProgress" (click)='endAllCall()' aria-hidden="false" aria-label="Example home icon">
-        call_end</mat-icon>
-    </button>
-  </mat-drawer>
-  <mat-drawer-content>
-    <div>
-      <video [srcObject]='remoteVdoSrc' class="p_remote_video_size" autoplay>
-      </video>
-    </div>
-    <mat-card class="p_video_card">
-      <mat-card-header class="p_video_header">
-        <mat-icon class="p_video_expand" aria-hidden="false" aria-label="Example home icon">fullscreen</mat-icon>
-      </mat-card-header>
-      <video [srcObject]='vdoSrc' class="p_video_size" autoplay>
-      </video>
-    </mat-card>
-  </mat-drawer-content>
-</mat-drawer-container>
+<router-outlet></router-outlet>

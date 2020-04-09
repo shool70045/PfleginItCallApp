@@ -12,9 +12,13 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
+import { ToastrModule } from "ngx-toastr";
+
+import { CallHomeComponent } from "./components/call-home/call-home.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CallHomeComponent, DashboardComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -26,7 +30,8 @@ import { MatButtonModule } from "@angular/material/button";
     MatIconModule,
     MatSidenavModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
